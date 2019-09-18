@@ -4,20 +4,17 @@ var Module = (function () {
     var bpList=[];
 
     var updateList = function (BPs) {
-            alert('Callback worked' + BPs);
             if(BPs){
                 document.getElementById("authorsNameLabel").innerHTML = selectedAuthorName;
                 var newArray = BPs.map(function(val, index){
                     return {key:val.name, value:val.points.length}
                 })
 
-                $("blueprintTable tbody").empty();
+                $("#blueprintTable tbody").empty();
                 newArray.map(function(val,index){
-                  var toAdd = '<tr><td>' + index + '</td><td>' + val + '</td><td></td></tr>';
-                  $("blueprintTable tbody").append(toAdd);
+                  var toAdd = '<tr><td>' + val.key + '</td><td>' + val.value + '</td><td></td></tr>';
+                  $("#blueprintTable tbody").append(toAdd);
                 })
-                alert('Callback worked' + BPs);
-
             }
       };
 
