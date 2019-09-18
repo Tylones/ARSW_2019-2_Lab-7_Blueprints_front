@@ -4,14 +4,23 @@ var Module = (function () {
     var bpList=[];
 
     var updateList = function (BPs) {
-            alert('Callback worked' + BPs);
             if(BPs){
                 document.getElementById("authorsNameLabel").innerHTML = selectedAuthorName;
                 var newArray = BPs.map(function(val, index){
                     return {key:val.name, value:val.points.length}
                 })
-                alert('Callback worked' + BPs);
 
+                $("#blueprintTable tbody").empty();
+                newArray.map(function(val,index){
+                  var toAdd = '<tr><td>' + val.key + '</td><td>' + val.value + '</td><td></td></tr>';
+                  $("#blueprintTable tbody").append(toAdd);
+                })
+
+                var numberOfPoints = newArray.reduce(function(total, val){
+                  return total.value + val.value;
+                })
+
+                document.getElementById("labelUserPoints").innerHTML = numberOfPoints;
             }
       };
 
