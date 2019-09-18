@@ -10,6 +10,12 @@ var Module = (function () {
                 var newArray = BPs.map(function(val, index){
                     return {key:val.name, value:val.points.length}
                 })
+
+                $("blueprintTable tbody").empty();
+                newArray.map(function(val,index){
+                  var toAdd = '<tr><td>' + index + '</td><td>' + val + '</td><td></td></tr>';
+                  $("blueprintTable tbody").append(toAdd);
+                })
                 alert('Callback worked' + BPs);
 
             }
