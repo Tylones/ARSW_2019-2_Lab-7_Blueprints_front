@@ -3,11 +3,27 @@ var Module = (function () {
     var selectedAuthorName;
     var bpList=[];
 
+    var updateList = function (BPs) {
+            alert('Callback worked' + BPs);
+            if(BPs){
+                document.getElementById("authorsNameLabel").innerHTML = selectedAuthorName;
+                var newArray = BPs.map(function(val, index){
+                    return {key:val.name, value:val.points.length}
+                })
+                alert('Callback worked' + BPs);
+
+            }
+      };
+
     return {
       authorNameChanged: function () {
         selectedAuthorName = document.getElementById("authorName").value;
-        document.getElementById("authorsNameLabel").innerHTML = selectedAuthorName;
+        
+
+        apimock.getBlueprintsByAuthor(selectedAuthorName,updateList);
       }
+
+      
     };
   
   })();
