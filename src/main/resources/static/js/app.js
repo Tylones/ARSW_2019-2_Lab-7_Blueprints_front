@@ -15,6 +15,12 @@ var Module = (function () {
                   var toAdd = '<tr><td>' + val.key + '</td><td>' + val.value + '</td><td></td></tr>';
                   $("#blueprintTable tbody").append(toAdd);
                 })
+
+                var numberOfPoints = newArray.reduce(function(total, val){
+                  return total.value + val.value;
+                })
+
+                document.getElementById("labelUserPoints").innerHTML = numberOfPoints;
             }
       };
 
