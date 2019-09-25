@@ -51,13 +51,13 @@ var Module = (function () {
         selectedAuthorName = document.getElementById("authorName").value;
         
 
-        apimock.getBlueprintsByAuthor(selectedAuthorName,updateList);
+        apiclient.getBlueprintsByAuthor(selectedAuthorName,updateList);
       },
 
       drawBluePrint: function(bpName){
         selectedAuthorName = document.getElementById("authorName").value;
 
-        apimock.getBlueprintsByNameAndAuthor(selectedAuthorName, bpName, draw);
+        apiclient.getBlueprintsByNameAndAuthor(selectedAuthorName, bpName, draw);
 
       }
       
