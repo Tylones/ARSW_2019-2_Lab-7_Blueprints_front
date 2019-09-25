@@ -1,5 +1,14 @@
 var apimock = (function () {
 
+      var findElement = function (arr, propName, propValue) {
+      for (var i=0; i < arr.length; i++)
+        if (arr[i][propName] == propValue)
+          return arr[i];
+    
+      // will return undefined if not found; you could return a default instead
+    }
+  
+
     var mockdata=[];
     mockdata["author2"]=[{"author":"author2","points":[{"x":0,"y":1},{"x":1,"y":0}],"name":"Blueprint_b"}];
     mockdata["_authorname_"]=[{"author":"_authorname_","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"_bpname_ "}];
@@ -9,7 +18,17 @@ var apimock = (function () {
         callback(
             mockdata[author]
         );
+      },
+
+      getBlueprintsByNameAndAuthor: function(author, name, callback){
+        callback(
+          findElement(mockdata[author],"name", name)
+        );
+        
       }
     };
+
+
+    
   
   })();
